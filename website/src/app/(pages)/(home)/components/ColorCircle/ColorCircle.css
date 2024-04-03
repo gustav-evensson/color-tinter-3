@@ -1,0 +1,88 @@
+.color-circle-even {
+  background: conic-gradient(
+    from 0deg,
+    oklab(0.62796, 0.22486, 0.12585) 0deg,
+    oklab(0.79446, 0.05511, 0.16176) 45deg,
+    oklab(0.96798, -0.07137, 0.19857) 90deg,
+    oklab(0.86644, -0.23389, 0.1795) 135deg,
+    oklab(0.9054, -0.14944, -0.0394) 180deg,
+    oklab(0.45201, -0.03246, -0.31153) 225deg,
+    oklab(0.55482, 0.1505, -0.25379) 270deg,
+    oklab(0.70167, 0.27457, -0.16916) 315deg,
+    oklab(0.62796, 0.22486, 0.12585) 360deg
+  );
+}
+
+.animate-rotate {
+  animation: rotate 20s linear infinite reverse;
+}
+
+.animate-hue-rotate {
+  color: hsl(0, 100%, 50%);
+  animation: hue-rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* oklab(0.62796, 0.22486, 0.12585) 0deg,
+oklab(0.79446, 0.05511, 0.16176) 45deg,
+oklab(0.96798, -0.07137, 0.19857) 90deg,
+oklab(0.86644, -0.23389, 0.1795) 135deg,
+oklab(0.9054, -0.14944, -0.0394) 180deg,
+oklab(0.45201, -0.03246, -0.31153) 225deg,
+oklab(0.55482, 0.1505, -0.25379) 270deg,
+oklab(0.70167, 0.27457, -0.16916) 315deg,
+oklab(0.62796, 0.22486, 0.12585) 360deg */
+
+@keyframes hue-rotate {
+  0% {
+    color: oklab(0.62796, 0.22486, 0.12585);
+  }
+  12.5% {
+    color: oklab(0.79446, 0.05511, 0.16176);
+  }
+  25% {
+    color: oklab(0.96798, -0.07137, 0.19857);
+  }
+  37.5% {
+    color: oklab(0.86644, -0.23389, 0.1795);
+  }
+  50% {
+    color: oklab(0.9054, -0.14944, -0.0394);
+  }
+  62.5% {
+    color: oklab(0.45201, -0.03246, -0.31153);
+  }
+  75% {
+    color: oklab(0.55482, 0.1505, -0.25379);
+  }
+  87.5% {
+    color: oklab(0.70167, 0.27457, -0.16916);
+  }
+  100% {
+    color: oklab(0.62796, 0.22486, 0.12585);
+  }
+}
+
+/* .color-circle-even {
+  background: conic-gradient(
+    from 0deg,
+    oklab(0.62796, 0.22486, 0.12585) 0deg 45deg,
+    oklab(0.79446, 0.05511, 0.16176) 45deg 90deg,
+    oklab(0.96798, -0.07137, 0.19857) 90deg 135deg,
+    oklab(0.86644, -0.23389, 0.1795) 135deg 180deg,
+    oklab(0.9054, -0.14944, -0.0394) 180deg 225deg,
+    oklab(0.45201, -0.03246, -0.31153) 225deg 270deg,
+    oklab(0.55482, 0.1505, -0.25379) 270deg 315deg,
+    oklab(0.70167, 0.27457, -0.16916) 315deg 360deg,
+    oklab(0.62796, 0.22486, 0.12585) 360deg
+  );
+} */
+
