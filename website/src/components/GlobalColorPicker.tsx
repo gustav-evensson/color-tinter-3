@@ -5,7 +5,7 @@ import { useState } from "react";
 import { PaletteIcon } from "lucide-react";
 import ColorPicker from "./ColorPicker/ColorPicker";
 import { formatHex } from "@/lib/colorFormat";
-import { useColor, setColor } from "@/redux/store";
+import { useColor, setColor } from "@/redux/global/store";
 import type { HslaColor } from "react-colorful";
 import { useDispatch } from "react-redux";
 

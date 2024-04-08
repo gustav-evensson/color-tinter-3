@@ -13,7 +13,7 @@ export default function ColoCircle() {
             fillOpacity="1"
             stroke="white"
             strokeLinecap="round"
-            // className="fill-foreground stroke-foreground"
+            className="fill-white stroke-white dark:fill-black dark:stroke-black"
           />
         </svg>
       </div>

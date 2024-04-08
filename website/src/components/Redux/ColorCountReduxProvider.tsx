@@ -1,20 +1,19 @@
 "use client";
 import { useRef } from "react";
 import { Provider } from "react-redux";
-import { createStore, setColor } from "../redux/store";
-import type { HslaColor } from "react-colorful";
+import { createStore, setColorCount } from "../../redux/tools/store";
 
-export default function ReduxProvider({
-  color,
+export default function ColorCountReduxProvider({
+  colorCount,
   children,
 }: {
-  color: HslaColor;
+  colorCount: number;
   children: React.ReactNode;
 }) {
   const storeRef = useRef<ReturnType<typeof createStore> | null>(null);
   if (!storeRef.current) {
     storeRef.current = createStore();
-    storeRef.current.dispatch(setColor(color));
+    storeRef.current.dispatch(setColorCount(colorCount));
   }
 
   return <Provider store={storeRef.current}>{children}</Provider>;

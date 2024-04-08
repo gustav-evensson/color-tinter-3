@@ -3,7 +3,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import NavBar from "@/components/Layout/NavBar/NavBar";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import ReduxProvider from "@/components/ReduxProvider";
+import GlobalReduxProvider from "@/components/Redux/GlobalReduxProvider";
+import Footer from "@/components/Layout/Footer";
 
 export const metadata: Metadata = {
   title: "Color Tinter 3",
@@ -13,12 +14,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen")}>
+      <body className={cn("min-h-screen flex flex-col")}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <ReduxProvider color={{ h: 150, s: 0, l: 50, a: 1 }}>
+          <GlobalReduxProvider color={{ h: 150, s: 0, l: 50, a: 1 }}>
             <NavBar />
-            <main className="pt-[55px]">{children}</main>
-          </ReduxProvider>
+            <main className="pt-[55px] flex flex-col flex-grow">{children}</main>
+            <Footer />
+          </GlobalReduxProvider>
         </ThemeProvider>
       </body>
     </html>
