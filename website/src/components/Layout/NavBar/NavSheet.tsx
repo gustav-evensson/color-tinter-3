@@ -1,6 +1,7 @@
 "use client";
 
 import ColorTinterIcon from "@/components/icons/ColorTinterIcon";
+import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
@@ -10,13 +11,14 @@ import { usePathname } from "next/navigation";
 import path from "path";
 
 export function NavSheet() {
-
   const pathname = usePathname();
 
   return (
     <Sheet>
       <SheetTrigger asChild className="block text-muted-foreground md:hidden">
-        <HamburgerMenuIcon className="size-5" />
+        <Button variant="ghost" size="icon" className="flex items-center justify-center">
+          <HamburgerMenuIcon className="size-5" />
+        </Button>
       </SheetTrigger>
       <SheetContent side="left">
         <SheetHeader>
@@ -29,28 +31,94 @@ export function NavSheet() {
           <ul>
             <li>
               <SheetClose asChild>
-                <Link href="/" className={cn("py-1 block text-muted-foreground", {
-                  "text-foreground": pathname === "/"
-                })}>
+                <Link
+                  href="/"
+                  className={cn("py-1.5 block text-muted-foreground", {
+                    "text-foreground": pathname === "/",
+                  })}
+                >
                   Home
                 </Link>
               </SheetClose>
             </li>
             <li>
+              <p className="pb-1 pt-2 text-lg">Manipulation</p>
+            </li>
+            <li>
               <SheetClose asChild>
-                <Link href="/tools/tints" className={cn("py-1 block text-muted-foreground", {
-                  "text-foreground": pathname.includes("/tints") || pathname.includes("/shades") || pathname.includes("/tones")
-                })}>
-                  Manipulation
+                <Link
+                  href="/tools/manipulation/tints"
+                  className={cn("py-1 block text-muted-foreground", {
+                    "text-foreground": pathname.includes("/tints"),
+                  })}
+                >
+                  Tints
                 </Link>
               </SheetClose>
             </li>
             <li>
               <SheetClose asChild>
-                <Link href="/tools/converter" className={cn("py-1 block text-muted-foreground", {
-                  "text-foreground": pathname.includes("/converter")
-                })}>
-                  Conversion
+                <Link
+                  href="/tools/manipulation/shades"
+                  className={cn("py-1 block text-muted-foreground", {
+                    "text-foreground": pathname.includes("/shades"),
+                  })}
+                >
+                  Shades
+                </Link>
+              </SheetClose>
+            </li>
+            <li>
+              <SheetClose asChild>
+                <Link
+                  href="/tools/manipulation/tones"
+                  className={cn("py-1 block text-muted-foreground", {
+                    "text-foreground": pathname.includes("/tones"),
+                  })}
+                >
+                  Tones
+                </Link>
+              </SheetClose>
+            </li>
+            <li>
+              <p className="pb-1 pt-2 text-lg">Conversion</p>
+            </li>
+            <li>
+              <SheetClose asChild>
+                <Link
+                  href="/tools/conversion/converter"
+                  className={cn("py-1 block text-muted-foreground", {
+                    "text-foreground": pathname.includes("/converter"),
+                  })}
+                >
+                  Converter
+                </Link>
+              </SheetClose>
+            </li>
+            <li>
+              <p className="pb-1 pt-2 text-lg">Other</p>
+            </li>
+            <li>
+              <SheetClose asChild>
+                <Link
+                  href="/tools/other-tools/shadcn-colors"
+                  className={cn("py-1 block text-muted-foreground", {
+                    "text-foreground": pathname.includes("/shadcn-colors"),
+                  })}
+                >
+                  Shadcn/colors
+                </Link>
+              </SheetClose>
+            </li>
+            <li>
+              <SheetClose asChild>
+                <Link
+                  href="/tools/other-tools/100-900"
+                  className={cn("py-1 block text-muted-foreground", {
+                    "text-foreground": pathname.includes("/100-900"),
+                  })}
+                >
+                  100-900
                 </Link>
               </SheetClose>
             </li>

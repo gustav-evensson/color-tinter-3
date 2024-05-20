@@ -1,22 +1,15 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
-import { useState } from "react";
-import { useColorCount, setColorCount } from "@/redux/tools/store";
+import { useColorCount, setColorCount } from "@/redux/store";
 import { useDispatch } from "react-redux";
 
 const countOptions = [2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 export function ColorCountDropdown() {
-
   const dispatch = useDispatch();
 
   const colorCount = useColorCount() as number;

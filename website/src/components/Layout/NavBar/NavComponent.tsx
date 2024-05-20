@@ -14,45 +14,45 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import ColorTinterIcon from "@/components/icons/ColorTinterIcon"
 import { usePathname } from "next/navigation"
 
-const components: { title: string; href: string; description: string }[] = [
+const manipulations: { title: string; href: string, description: string }[] = [
   {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+    title: "Tints",
+    href: "/tools/manipulation/tints",
+    description: "Increasing the lightness value of a color.",
   },
   {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
+    title: "Shades",
+    href: "/tools/manipulation/shades",
+    description: "Decreasing the lightness value of a color.",
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    title: "Tones",
+    href: "/tools/manipulation/tones",
+    description: "Mixing a color with grey.",
+  },
+]
+
+const conversions: { title: string; href: string, description: string }[] = [
+  {
+    title: "Color converter",
+    href: "/tools/conversion/converter",
+    description: "Convert between different color formats.",
+  },
+]
+
+const other: { title: string; href: string, description: string }[] = [
+  {
+    title: "Shadcn/colors",
+    href: "/tools/other-tools/shadcn-colors",
+    description: "A more advanced theme customization tool for shadcn/ui.",
   },
   {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
+    title: "100-900",
+    href: "/tools/other-tools/100-900",
+    description: "Generate a monochrome color palette based on a single color.",
+  }
 ]
 
 export function NavigationComponent() {
@@ -63,45 +63,64 @@ export function NavigationComponent() {
     <NavigationMenu>
       <NavigationMenuList className="flex">
         <NavigationMenuItem>
-          <NavigationMenuTrigger className={cn("text-foreground/50 bg-transparent hover:text-foreground/75 ring-foreground focus-visible:ring-1 transition p-2 h-fit focus:bg-transparent hover:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent", {
-            "text-foreground": pathname.includes("/tools"),
-          })}>Tools</NavigationMenuTrigger>
+        <NavigationMenuTrigger className={cn("text-foreground/50 bg-transparent hover:text-foreground/75 ring-foreground focus-visible:ring-1 transition p-2 h-fit focus:bg-transparent hover:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent", {
+            "text-foreground": pathname.includes("/manipulation"),
+          })}>Manipulation</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              <ListItem href="/tools/tints" title="Tints">
-                Increasing the lightness value of a color.
-              </ListItem>
-              <ListItem href="/tools/shades" title="Shades">
-                Decreasing the lightness value of a color.
-              </ListItem>
-              <ListItem href="/tools/tones" title="Tones">
-                Mixing a color with grey.
-              </ListItem>
-              <ListItem href="/tools/converter" title="Color converter">
-                Convert colors to different formats.
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        {/* <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-foreground/50 bg-transparent hover:text-foreground/75 ring-foreground focus-visible:ring-1 transition p-2 h-fit focus:bg-transparent hover:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent">Components</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              {components.map((component) => (
+            <ul className="grid w-max max-w-[400px] gap-3 p-3 md:max-w-[500px] md:grid-cols-2 lg:max-w-[600px]">
+              {manipulations.map((tool) => (
                 <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
+                  key={tool.title}
+                  title={tool.title}
+                  href={tool.href}
                 >
-                  {component.description}
+                  {tool.description}
                 </ListItem>
               ))}
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem> */}
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+        <NavigationMenuTrigger className={cn("text-foreground/50 bg-transparent hover:text-foreground/75 ring-foreground focus-visible:ring-1 transition p-2 h-fit focus:bg-transparent hover:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent", {
+            "text-foreground": pathname.includes("/conversion"),
+          })}>Conversion</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-max max-w-[400px] gap-3 p-3 md:max-w-[500px] lg:max-w-[600px]">
+              {conversions.map((tool) => (
+                <ListItem
+                  key={tool.title}
+                  title={tool.title}
+                  href={tool.href}
+                >
+                  {tool.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+        <NavigationMenuTrigger className={cn("text-foreground/50 bg-transparent hover:text-foreground/75 ring-foreground focus-visible:ring-1 transition p-2 h-fit focus:bg-transparent hover:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent", {
+            "text-foreground": pathname.includes("/other-tools"),
+          })}>Other</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-max max-w-[400px] gap-3 p-3 md:max-w-[500px] md:grid-cols-2 lg:max-w-[600px]">
+              {other.map((tool) => (
+                <ListItem
+                  key={tool.title}
+                  title={tool.title}
+                  href={tool.href}
+                >
+                  {tool.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
         <NavigationMenuItem >
-          <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className="text-foreground/50 rounded-md p-2 hover:text-foreground/75 ring-foreground focus-visible:ring-1 outline-none transition text-sm">
+          <Link href="/about" legacyBehavior passHref>
+            <NavigationMenuLink className={cn("text-foreground/50 rounded-md p-2 hover:text-foreground/75 ring-foreground focus-visible:ring-1 outline-none transition text-sm", {
+              "text-foreground": pathname.includes("/about"),
+            })}>
               About
             </NavigationMenuLink>
           </Link>
@@ -114,11 +133,12 @@ export function NavigationComponent() {
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+>(({ className, title, children, href, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
-        <a
+        <Link
+          href={href as string}
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
@@ -130,7 +150,7 @@ const ListItem = React.forwardRef<
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-        </a>
+        </Link>
       </NavigationMenuLink>
     </li>
   )

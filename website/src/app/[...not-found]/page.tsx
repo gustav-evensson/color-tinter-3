@@ -13,7 +13,7 @@ export default function NotFound() {
             <h5 className="text-md font-semibold">Home</h5>
             <p className="text-muted-foreground">The home page</p>
           </Link>
-          <Link href="/tools/tints" className="p-3 transition rounded-md hover:bg-accent block">
+          <Link href="/tools/manipulation/tints" className="p-3 transition rounded-md hover:bg-accent block">
             <h5 className="text-md font-semibold">Tools</h5>
             <p className="text-muted-foreground">A page with some amazing color tools</p>
           </Link>

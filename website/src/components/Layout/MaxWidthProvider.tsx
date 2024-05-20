@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "w-full px-8 md:px-16 mx-auto",
+  "w-full px-8 mx-auto",
   {
     variants: {
       size: {

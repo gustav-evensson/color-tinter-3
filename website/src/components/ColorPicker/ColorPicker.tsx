@@ -14,10 +14,11 @@ type ColorPickerProps = {
 };
 
 export default function ColorPicker({ color, onChange, children, hideAlpha = false }: ColorPickerProps) {
+  
   return (
     <Popover>
       <PopoverTrigger asChild>{children}</PopoverTrigger>
-      <PopoverContent className="mx-4 w-fit">
+      <PopoverContent align="start" className="w-fit">
         <div className={cn("color-picker", {
           'color-picker-hide-alpha': hideAlpha,
         })}>

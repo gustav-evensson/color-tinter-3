@@ -3,7 +3,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import NavBar from "@/components/Layout/NavBar/NavBar";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import GlobalReduxProvider from "@/components/Redux/GlobalReduxProvider";
+import ReduxProvider from "@/components/Redux/ReduxProvider";
 import Footer from "@/components/Layout/Footer";
 
 export const metadata: Metadata = {
@@ -14,13 +14,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen flex flex-col")}>
+      <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <GlobalReduxProvider color={{ h: 150, s: 0, l: 50, a: 1 }}>
+          <ReduxProvider color={{ h: 342, s: 67, l: 44, a: 1 }} colorCount={9}>
             <NavBar />
-            <main className="pt-[55px] flex flex-col flex-grow">{children}</main>
+            <main className="pt-[55px] flex flex-col min-h-screen">{children}</main>
             <Footer />
-          </GlobalReduxProvider>
+          </ReduxProvider>
         </ThemeProvider>
       </body>
     </html>

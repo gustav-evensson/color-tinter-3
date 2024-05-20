@@ -22,9 +22,9 @@ export default function SideBarLinks({ links }: SideBarLinksProps) {
     <ul>
       {links.map((link, index) => (
         <li key={index}>
-          <a className={cn("opacity-50 hover:underline focus-visible:opacity-75 py-0.5 inline-block w-full",{
+          <Link className={cn("opacity-50 hover:underline focus-visible:opacity-75 py-0.5 inline-block w-full",{
             "opacity-100": pathname === link.href
-          })} href={link.href}>{link.title}</a>
+          })} href={link.href}>{link.title}</Link>
         </li>
       ))}
     </ul>

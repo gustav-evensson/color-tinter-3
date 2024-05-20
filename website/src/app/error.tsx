@@ -1,5 +1,8 @@
 'use client'
- 
+
+import { Button } from "@/components/ui/button"
+
+
 export default function Error({
   error,
   reset,
@@ -8,9 +11,9 @@ export default function Error({
   reset: () => void
 }) {
   return (
-    <div>
+    <div className="size-full flex items-center justify-center">
       <h2>Something went wrong!</h2>
-      <button onClick={() => reset()}>Try again</button>
+      <Button onClick={() => reset()}>Try again</Button>
     </div>
   )
 }

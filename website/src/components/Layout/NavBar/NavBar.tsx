@@ -12,7 +12,7 @@ import { NavSheet } from "./NavSheet";
 export default function NavBar() {
   return (
     <nav className="fixed w-full top-0 left-0 bg-background/70 backdrop-blur-md border-b h-14 z-50">
-      <Mwp size="lg" className="flex items-center justify-between h-full">
+      <Mwp size="lg" className="flex items-center justify-between h-full max-w-[1920px] p-4 md:px-8">
         <NavSheet />
         <div className="items-center gap-6 hidden md:flex">
           <Link href="/" className="flex items-center group">

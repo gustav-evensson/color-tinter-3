@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <section>
-        <Mwp className="py-16 md:py-32 flex flex-col-reverse items-center justify-center gap-y-16 gap-x-8 md:flex-row  2xl:border-x">
+        <Mwp className="py-16 md:py-32 flex flex-col-reverse items-center justify-center gap-y-16 gap-x-8 md:px-16 md:flex-row 2xl:border-x">
           <div className="max-w-md">
             <h1 className="text-5xl max-w-80 sm:text-6xl xs:max-w-[400px] md:min-w-[400px] lg:min-w-[470px] lg:text-7xl font-bold font-poppins">
               Make The <span className="text-[hsl(0deg, 100%, 50%)] animate-hue-rotate">Colors</span> Work For You

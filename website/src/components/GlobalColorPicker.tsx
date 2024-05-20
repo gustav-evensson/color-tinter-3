@@ -4,33 +4,43 @@ import { Button } from "./ui/button";
 import { useState } from "react";
 import { PaletteIcon } from "lucide-react";
 import ColorPicker from "./ColorPicker/ColorPicker";
-import { formatHex } from "@/lib/colorFormat";
-import { useColor, setColor } from "@/redux/global/store";
+import { formatHex } from "@/lib/colors/colorFormat";
+import { useColor, setColor } from "@/redux/store";
 import type { HslaColor } from "react-colorful";
 import { useDispatch } from "react-redux";
+import InputColorPicker from "./InputColorPicker/InputColorPicker";
+
+import chroma from "chroma-js";
 
 export default function GlobalColorPicker() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
+  const color = useColor() as HslaColor;
 
-  const color = useColor() as HslaColor
+  const convertToHsla = (color: string) => {
+    if (!chroma.valid(color)) return;
+    const hslArray = chroma(color).hsl();
 
-  // const [color, setColor] = useState({
-  //   h: 0,
-  //   s: 0,
-  //   l: 0,
-  //   a: 1,
-  // });
+    const validArray = hslArray.map((val) => {
+      if (!isNaN(val)) {
+        return val;
+      }
+      return 0;
+    });
+
+    console.log(validArray)
+
+    dispatch(setColor({
+      h: validArray[0],
+      s: validArray[1],
+      l: validArray[2],
+      a: 1
+    }))
+  };
 
   return (
     <div className="flex items-center gap-2">
-      <ColorPicker color={color} hideAlpha onChange={(val) => dispatch(setColor(val))}>
-        <Button variant="outline" className="flex items-center justify-start px-2 gap-2 w-[170px]">
-          <PaletteIcon size={20} />
-          <span className="uppercase">{formatHex(color)}</span>
-          <div className="size-5 rounded-full ml-auto border" style={{ backgroundColor: formatHex(color) }}></div>
-        </Button>
-      </ColorPicker>
+      <InputColorPicker />
     </div>
   );
 }
